@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include coatserve *.css
+recursive-include coatserve *.csv
+recursive-include coatserve *.html
+recursive-include coatserve *.ico
+recursive-include coatserve *.js
+recursive-include coatserve *.json
+recursive-include coatserve *.md
+recursive-include coatserve *.png
+recursive-include coatserve *.py
+recursive-include coatserve *.svg
+recursive-include coatserve *.txt
+recursive-exclude coatserve *.pyc
