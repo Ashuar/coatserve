@@ -65,3 +65,18 @@ function pricePerLtOrKg(frm, cdt, cdn) {
         
     frappe.model.set_value(cdt, cdn, 'price_per_lt_or_kg', calculatedValue);
 }
+
+frappe.ui.form.on('Sales Order', {
+	validate: function(frm) {
+        function calculateQtyLtrKg() {
+            var totalQty = 0;
+            
+            frm.doc.items.forEach(function(item){
+                totalQty += parseFloat(item.quantity_ltr_kg) || 0;
+            });
+            
+            frm.set_value('total_qty_ltr_kg', totalQty);
+        }
+        calculateQtyLtrKg();
+	}
+});
