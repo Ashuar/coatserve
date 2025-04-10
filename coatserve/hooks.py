@@ -199,3 +199,16 @@ app_license = "MIT"
 # auth_hooks = [
 #	"coatserve.auth.validate"
 # ]
+fixtures = [
+    {
+        "dt": "Custom Field",
+        "filters": {
+            "name": ["IN", ["Sales Order Item-pack_size",
+            "Sales Order Item-sale_tax_value",
+            "Sales Order Item-total_inclusive_sales_tax",
+            "Sales Order Item-price_per_lt_or_kg",
+            "Sales Order Item-total_cost",
+            "Sales Order Item-quantity_ltr_k"]]
+        }
+    }
+]
