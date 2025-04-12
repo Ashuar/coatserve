@@ -212,14 +212,14 @@ fixtures = [
             "Sales Order Item-total_inclusive_sales_tax",
             "Sales Order Item-price_per_lt_or_kg",
             "Sales Order Item-total_cost",
-            "Sales Order Item-quantity_ltr_k",
+            "Sales Order Item-quantity_ltr_kg",
             "Sales Order-total_qty_ltr_kg",
             "Delivery Note Item-pack_size",
             "Delivery Note Item-sale_tax_value",
             "Delivery Note Item-total_inclusive_sales_tax",
             "Delivery Note Item-price_per_lt_or_kg",
             "Delivery Note Item-total_cost",
-            "Delivery Note Item-quantity_ltr_k",
+            "Delivery Note Item-quantity_ltr_kg",
             "Delivery Note-total_qty_ltr_kg",
             ]]
         }
