@@ -221,6 +221,13 @@ fixtures = [
             "Delivery Note Item-total_cost",
             "Delivery Note Item-quantity_ltr_kg",
             "Delivery Note-total_qty_ltr_kg",
+            "Sales Invoice Item-pack_size",
+            "Sales Invoice Item-sale_tax_value",
+            "Sales Invoice Item-total_inclusive_sales_tax",
+            "Sales Invoice Item-price_per_lt_or_kg",
+            "Sales Invoice Item-total_cost",
+            "Sales Invoice Item-quantity_ltr_kg",
+            "Sales Invoice-total_qty_ltr_kg"
             ]]
         }
     }
