@@ -227,7 +227,6 @@ fixtures = [
             "Sales Invoice Item-price_per_lt_or_kg",
             "Sales Invoice Item-total_cost",
             "Sales Invoice Item-quantity_ltr_k",
-            "Sales Invoice-total_qty_ltr_kg"
             ]]
         }
     }
