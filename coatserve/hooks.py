@@ -31,6 +31,8 @@ app_license = "MIT"
 # include js in doctype views
 doctype_js = {
     "Sales Order" : "public/js/sales_order.js",
+    "Delivery Note": "public/js/delivery_note.js",
+    "Sales Invoice": "public/js/sales_invoice.js",
     }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -210,7 +212,23 @@ fixtures = [
             "Sales Order Item-total_inclusive_sales_tax",
             "Sales Order Item-price_per_lt_or_kg",
             "Sales Order Item-total_cost",
-            "Sales Order Item-quantity_ltr_k"]]
+            "Sales Order Item-quantity_ltr_k",
+            "Sales Order-total_qty_ltr_kg",
+            "Delivery Note Item-pack_size",
+            "Delivery Note Item-sale_tax_value",
+            "Delivery Note Item-total_inclusive_sales_tax",
+            "Delivery Note Item-price_per_lt_or_kg",
+            "Delivery Note Item-total_cost",
+            "Delivery Note Item-quantity_ltr_k",
+            "Delivery Note-total_qty_ltr_kg",
+            "Sales Invoice Item-pack_size",
+            "Sales Invoice Item-sale_tax_value",
+            "Sales Invoice Item-total_inclusive_sales_tax",
+            "Sales Invoice Item-price_per_lt_or_kg",
+            "Sales Invoice Item-total_cost",
+            "Sales Invoice Item-quantity_ltr_k",
+            "Sales Invoice-total_qty_ltr_kg"
+            ]]
         }
     }
 ]
