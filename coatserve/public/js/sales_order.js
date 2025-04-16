@@ -1,3 +1,5 @@
+frappe.provide("erpnext.utils");
+
 frappe.ui.form.on('Sales Order Item', {
     item_code: function(frm, cdt, cdn) {
         var child = locals[cdt][cdn];
@@ -6,11 +8,7 @@ frappe.ui.form.on('Sales Order Item', {
                 frappe.model.set_value(cdt, cdn, 'pack_size', response.pack_size);
             }
         });
-    }
-});
-// upper function is to retrive data of pack size with item wise
-
-frappe.ui.form.on('Sales Order Item', {
+    },
     rate: function(frm, cdt, cdn) {
         updateQtyLtrKg(frm, cdt, cdn);
         updateSalesTaxValue(frm, cdt, cdn);
@@ -24,6 +22,8 @@ frappe.ui.form.on('Sales Order Item', {
         pricePerLtOrKg(frm, cdt, cdn);
     }
 });
+
+
 
 function updateQtyLtrKg(frm, cdt, cdn) {
     var child = locals[cdt][cdn];
