@@ -106,13 +106,11 @@ doctype_js = {
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Sales Order": {
+		"before_update_after_submit": "coatserve.events.sales_order.calculate_total_qty_ltr_kg"
+	}
+}
 
 # Scheduled Tasks
 # ---------------

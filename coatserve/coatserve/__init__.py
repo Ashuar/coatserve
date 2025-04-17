@@ -9,6 +9,7 @@ from frappe.utils import flt, get_link_to_form, getdate
 from frappe import _
 from erpnext.stock.doctype.packed_item.packed_item import make_packing_list
 
+
 @frappe.whitelist()
 def update_child_qty_rate(parent_doctype, trans_items, parent_doctype_name, child_docname="items"):
 	def check_doc_permissions(doc, perm_type="create"):
@@ -189,7 +190,7 @@ def update_child_qty_rate(parent_doctype, trans_items, parent_doctype_name, chil
 			child_item.pack_size = d.get("pack_size")
 			child_item.qty = d.get("qty")
 			child_item.quantity_ltr_kg = flt(child_item.qty) * flt(child_item.pack_size)
-
+			
 
 		if d.get("schedule_date") and parent_doctype == "Purchase Order":
 			child_item.schedule_date = d.get("schedule_date")
@@ -231,6 +232,7 @@ def update_child_qty_rate(parent_doctype, trans_items, parent_doctype_name, chil
 	parent.set_qty_as_per_stock_uom()
 	parent.calculate_taxes_and_totals()
 	parent.set_total_in_words()
+	
 	if parent_doctype == "Sales Order":
 		make_packing_list(parent)
 		parent.set_gross_profit()
