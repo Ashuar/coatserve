@@ -22,6 +22,7 @@ def get_data(filters=None):
 		sii.pack_size,
 		sii.qty as order_qty,
 		sii.rate,
+        sii.amount,
 		stock_entry_detail.basic_rate,
 		sii.quantity_ltr_kg,
 		ROUND((sii.rate - stock_entry_detail.basic_rate), 2) as cm_per_pack,
@@ -96,6 +97,11 @@ def get_columns():
             "fieldname": "rate",
             "fieldtype": "Float",
             "label": "Sale Price(RS)",
+        },
+        {
+            "fieldname": "amount",
+            "fieldtype": "Float",
+            "label": "Total Sales Value (RS)",
         },
         {
             "fieldname": "basic_rate",
