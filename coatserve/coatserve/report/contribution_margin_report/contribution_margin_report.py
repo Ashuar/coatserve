@@ -12,42 +12,62 @@ def execute(filters=None):
 
 def get_data(filters=None):
     query = """
-	SELECT
+		SELECT
 		si.name,
-        stock_entry.name as stock_entry,
-		si.posting_date as invoice_date,
+		si.posting_date AS invoice_date,
 		si.customer,
 		si.customer_name,
 		sii.item_code,
 		sii.item_name,
 		sii.pack_size,
-		sii.qty as order_qty,
+		sii.qty AS order_qty,
 		sii.rate,
-        sii.amount,
-		stock_entry_detail.basic_rate,
-		sii.quantity_ltr_kg,
-		ROUND((sii.rate - stock_entry_detail.basic_rate), 2) as cm_per_pack,
-		ROUND((sii.rate - stock_entry_detail.basic_rate) / sii.pack_size, 2) as cm_per_ltr,
 		sii.amount,
-		ROUND(stock_entry_detail.basic_rate * sii.qty, 2) as total_cost,
-		ROUND((sii.rate - stock_entry_detail.basic_rate) * sii.qty, 2) as total_cm,
-		ROUND((sii.rate - stock_entry_detail.basic_rate) / sii.rate * 100, 2) as cm_percentage
+		sii.quantity_ltr_kg,
+		sed.basic_rate,
+		ROUND((sii.rate - sed.basic_rate), 2) AS cm_per_pack,
+		ROUND((sii.rate - sed.basic_rate) / sii.pack_size, 2) AS cm_per_ltr,
+		ROUND(sed.basic_rate * sii.qty, 2) AS total_cost,
+		ROUND((sii.rate - sed.basic_rate) * sii.qty, 2) AS total_cm,
+		ROUND((sii.rate - sed.basic_rate) / sii.rate * 100, 2) AS cm_percentage,
+		sed.stock_entry_name AS stock_entry
 	FROM
 		`tabSales Invoice` si
 	INNER JOIN
 		`tabSales Invoice Item` sii ON si.name = sii.parent
-	INNER JOIN
-		`tabStock Entry Detail` stock_entry_detail ON sii.item_code = stock_entry_detail.item_code
-	INNER JOIN
-		`tabStock Entry` stock_entry ON stock_entry_detail.parent = stock_entry.name 
-		AND stock_entry.stock_entry_type = 'Manufacture'
-	WHERE    
-		si.docstatus = '1'
-		AND si.posting_date >= %(from_date)s 
+	LEFT JOIN (
+		SELECT
+			sed1.item_code,
+			sed1.basic_rate,
+			sed1.parent AS stock_entry_name,
+			se1.posting_date,
+			se1.name AS se_name
+		FROM
+			`tabStock Entry Detail` sed1
+		INNER JOIN
+			`tabStock Entry` se1 ON sed1.parent = se1.name
+		WHERE
+			se1.docstatus = 1
+			AND se1.stock_entry_type = 'Manufacture'
+	) AS sed ON
+		sed.item_code = sii.item_code
+		AND sed.posting_date = (
+			SELECT MAX(se2.posting_date)
+			FROM `tabStock Entry` se2
+			INNER JOIN `tabStock Entry Detail` sed2 ON sed2.parent = se2.name
+			WHERE
+				se2.docstatus = 1
+				AND se2.stock_entry_type = 'Manufacture'
+				AND sed2.item_code = sii.item_code
+				AND se2.posting_date <= si.posting_date
+		)
+	WHERE
+		si.docstatus = 1
+		AND si.posting_date >= %(from_date)s
 		AND si.posting_date <= %(to_date)s
     GROUP BY
-	si.name, sii.item_code, sii.qty;
-	"""
+    	si.posting_date, sii.item_code, sii.qty
+		ORDER BY si.posting_date;"""
     data = frappe.db.sql(query, filters, as_dict=True)
     return data
 
