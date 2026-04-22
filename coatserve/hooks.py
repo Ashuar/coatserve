@@ -2,9 +2,9 @@ from . import __version__ as app_version
 
 app_name = "coatserve"
 app_title = "Coatserve"
-app_publisher = "ashuar"
-app_description = "coarserve customaization"
-app_email = "ashuarchughtai@gmail.com"
+app_publisher = "Ali Raza"
+app_description = "Coatserve customization"
+app_email = "soundsofnation29@gmail.com"
 app_license = "MIT"
 
 # Includes in <head>
@@ -30,10 +30,10 @@ app_include_js = ["coatserve.bundle.js"]
 
 # include js in doctype views
 doctype_js = {
-    "Sales Order" : "public/js/sales_order.js",
+    "Sales Order": "public/js/sales_order.js",
     "Delivery Note": "public/js/delivery_note.js",
     "Sales Invoice": "public/js/sales_invoice.js",
-    }
+}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -46,7 +46,7 @@ doctype_js = {
 
 # website user home page (by Role)
 # role_home_page = {
-#	"Role": "home_page"
+# 	"Role": "home_page"
 # }
 
 # Generators
@@ -60,8 +60,8 @@ doctype_js = {
 
 # add methods and filters to jinja environment
 # jinja = {
-#	"methods": "coatserve.utils.jinja_methods",
-#	"filters": "coatserve.utils.jinja_filters"
+# 	"methods": "coatserve.utils.jinja_methods",
+# 	"filters": "coatserve.utils.jinja_filters"
 # }
 
 # Installation
@@ -87,11 +87,11 @@ doctype_js = {
 # Permissions evaluated in scripted ways
 
 # permission_query_conditions = {
-#	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
+# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
 # }
 #
 # has_permission = {
-#	"Event": "frappe.desk.doctype.event.event.has_permission",
+# 	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
 
 # DocType Class
@@ -99,7 +99,7 @@ doctype_js = {
 # Override standard doctype classes
 
 # override_doctype_class = {
-#	"ToDo": "custom_app.overrides.CustomToDo"
+# 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
 
 # Document Events
@@ -107,30 +107,30 @@ doctype_js = {
 # Hook on document methods and events
 
 doc_events = {
-	"Sales Order": {
-		"before_update_after_submit": "coatserve.events.sales_order.calculate_total_qty_ltr_kg"
-	}
+    "Sales Order": {
+        "before_update_after_submit": "coatserve.events.sales_order.calculate_total_qty_ltr_kg"
+    }
 }
 
 # Scheduled Tasks
 # ---------------
 
 # scheduler_events = {
-#	"all": [
-#		"coatserve.tasks.all"
-#	],
-#	"daily": [
-#		"coatserve.tasks.daily"
-#	],
-#	"hourly": [
-#		"coatserve.tasks.hourly"
-#	],
-#	"weekly": [
-#		"coatserve.tasks.weekly"
-#	],
-#	"monthly": [
-#		"coatserve.tasks.monthly"
-#	],
+# 	"all": [
+# 		"coatserve.tasks.all"
+# 	],
+# 	"daily": [
+# 		"coatserve.tasks.daily"
+# 	],
+# 	"hourly": [
+# 		"coatserve.tasks.hourly"
+# 	],
+# 	"weekly": [
+# 		"coatserve.tasks.weekly"
+# 	],
+# 	"monthly": [
+# 		"coatserve.tasks.monthly"
+# 	],
 # }
 
 # Testing
@@ -142,14 +142,14 @@ doc_events = {
 # ------------------------------
 #
 # override_whitelisted_methods = {
-#	"frappe.desk.doctype.event.event.get_events": "coatserve.event.get_events"
+# 	"frappe.desk.doctype.event.event.get_events": "coatserve.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-#	"Task": "coatserve.task.get_dashboard_data"
+# 	"Task": "coatserve.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
@@ -175,58 +175,62 @@ doc_events = {
 # --------------------
 
 # user_data_fields = [
-#	{
-#		"doctype": "{doctype_1}",
-#		"filter_by": "{filter_by}",
-#		"redact_fields": ["{field_1}", "{field_2}"],
-#		"partial": 1,
-#	},
-#	{
-#		"doctype": "{doctype_2}",
-#		"filter_by": "{filter_by}",
-#		"partial": 1,
-#	},
-#	{
-#		"doctype": "{doctype_3}",
-#		"strict": False,
-#	},
-#	{
-#		"doctype": "{doctype_4}"
-#	}
+# 	{
+# 		"doctype": "{doctype_1}",
+# 		"filter_by": "{filter_by}",
+# 		"redact_fields": ["{field_1}", "{field_2}"],
+# 		"partial": 1,
+# 	},
+# 	{
+# 		"doctype": "{doctype_2}",
+# 		"filter_by": "{filter_by}",
+# 		"partial": 1,
+# 	},
+# 	{
+# 		"doctype": "{doctype_3}",
+# 		"strict": False,
+# 	},
+# 	{
+# 		"doctype": "{doctype_4}"
+# 	}
 # ]
 
 # Authentication and authorization
 # --------------------------------
 
 # auth_hooks = [
-#	"coatserve.auth.validate"
+# 	"coatserve.auth.validate"
 # ]
 fixtures = [
     {
         "dt": "Custom Field",
         "filters": {
-            "name": ["IN", ["Sales Order Item-pack_size",
-            "Sales Order Item-sale_tax_value",
-            "Sales Order Item-total_inclusive_sales_tax",
-            "Sales Order Item-price_per_lt_or_kg",
-            "Sales Order Item-total_cost",
-            "Sales Order Item-quantity_ltr_kg",
-            "Sales Order-total_qty_ltr_kg",
-            "Delivery Note Item-pack_size",
-            "Delivery Note Item-sale_tax_value",
-            "Delivery Note Item-total_inclusive_sales_tax",
-            "Delivery Note Item-price_per_lt_or_kg",
-            "Delivery Note Item-total_cost",
-            "Delivery Note Item-quantity_ltr_kg",
-            "Delivery Note-total_qty_ltr_kg",
-            "Sales Invoice Item-pack_size",
-            "Sales Invoice Item-sale_tax_value",
-            "Sales Invoice Item-total_inclusive_sales_tax",
-            "Sales Invoice Item-price_per_lt_or_kg",
-            "Sales Invoice Item-total_cost",
-            "Sales Invoice Item-quantity_ltr_kg",
-            "Sales Invoice-total_qty_ltr_kg"
-            ]]
-        }
+            "name": [
+                "IN",
+                [
+                    "Sales Order Item-pack_size",
+                    "Sales Order Item-sale_tax_value",
+                    "Sales Order Item-total_inclusive_sales_tax",
+                    "Sales Order Item-price_per_lt_or_kg",
+                    "Sales Order Item-total_cost",
+                    "Sales Order Item-quantity_ltr_kg",
+                    "Sales Order-total_qty_ltr_kg",
+                    "Delivery Note Item-pack_size",
+                    "Delivery Note Item-sale_tax_value",
+                    "Delivery Note Item-total_inclusive_sales_tax",
+                    "Delivery Note Item-price_per_lt_or_kg",
+                    "Delivery Note Item-total_cost",
+                    "Delivery Note Item-quantity_ltr_kg",
+                    "Delivery Note-total_qty_ltr_kg",
+                    "Sales Invoice Item-pack_size",
+                    "Sales Invoice Item-sale_tax_value",
+                    "Sales Invoice Item-total_inclusive_sales_tax",
+                    "Sales Invoice Item-price_per_lt_or_kg",
+                    "Sales Invoice Item-total_cost",
+                    "Sales Invoice Item-quantity_ltr_kg",
+                    "Sales Invoice-total_qty_ltr_kg",
+                ],
+            ]
+        },
     }
 ]
